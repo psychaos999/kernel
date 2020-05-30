@@ -53,7 +53,7 @@ Summary: The Linux kernel
 %global zipsed -e 's/\.ko$/\.ko.xz/'
 %endif
 
-%global buildid .chinfo
+%global buildid .chinfo-haswell
 
 %if 0%{?fedora}
 %define primary_target fedora
