@@ -53,7 +53,7 @@ Summary: The Linux kernel
 %global zipsed -e 's/\.ko$/\.ko.xz/'
 %endif
 
-%global buildid .chinfo
+%global buildid .chinfo_zen
 
 %if 0%{?fedora}
 %define primary_target fedora
@@ -125,7 +125,7 @@ Summary: The Linux kernel
 
 # Apply zen patches? (zen release number to enable, 0 to disable)
 # This is not very tested
-%global zen 0
+%global zen 1
 %if 0%{?zen}
 # Disable post_factum if zen is requested
 %global post_factum 0
@@ -3059,3 +3059,4 @@ fi
 # rpm-change-log-uses-utc: t
 # End:
 ###
+
