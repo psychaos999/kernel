@@ -1560,7 +1560,7 @@ OPTS=""
 %if %{with_configchecks}
     OPTS="$OPTS -w -n -c"
 %endif
-./process_configs.sh $OPTS kernel %{rpmversion}
+#./process_configs.sh $OPTS kernel %{rpmversion}
 
 cp %{SOURCE56} .
 RPM_SOURCE_DIR=$RPM_SOURCE_DIR ./update_scripts.sh %{primary_target}
