@@ -61,6 +61,8 @@ Summary: The Linux kernel
 %define primary_target rhel
 %endif
 
+%define with_configchecks 0
+
 # baserelease defines which build revision of this kernel version we're
 # building.  We used to call this fedora_build, but the magical name
 # baserelease is matched by the rpmdev-bumpspec tool, which you should use.
@@ -504,7 +506,7 @@ Summary: The Linux kernel
 
 # We only build kernel-headers on the following...
 %if 0%{?fedora}
-%define nobuildarches i386
+%define nobuildarches i386 ppc64 s390x %{arm} %{power64} aarch64 ppc64le
 %else
 %define nobuildarches i386 i686 %{arm}
 %endif
