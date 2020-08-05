@@ -854,11 +854,11 @@ Patch67: 0001-drm-panel-add-Xingbangda-XBD599-panel.patch
 Patch68: 0001-drm-sun4i-sun6i_mipi_dsi-fix-horizontal-timing-calcu.patch
 Patch69: 0001-arm64-allwinner-dts-a64-add-LCD-related-device-nodes.patch
 Patch70: 0001-e1000e-bump-up-timeout-to-wait-when-ME-un-configure-.patch
-Patch72: 0001-virt-vbox-Rename-guest_caps-struct-members-to-set_gu.patch
-Patch73: 0001-virt-vbox-Add-vbg_set_host_capabilities-helper-funct.patch
-Patch74: 0001-virt-vbox-Add-support-for-the-new-VBG_IOCTL_ACQUIRE_.patch
-Patch75: 0001-virt-vbox-Add-a-few-new-vmmdev-request-types-to-the-.patch
-Patch76: 0001-virt-vbox-Log-unknown-ioctl-requests-as-error.patch
+#Patch72: 0001-virt-vbox-Rename-guest_caps-struct-members-to-set_gu.patch
+#Patch73: 0001-virt-vbox-Add-vbg_set_host_capabilities-helper-funct.patch
+#Patch74: 0001-virt-vbox-Add-support-for-the-new-VBG_IOCTL_ACQUIRE_.patch
+#Patch75: 0001-virt-vbox-Add-a-few-new-vmmdev-request-types-to-the-.patch
+#Patch76: 0001-virt-vbox-Log-unknown-ioctl-requests-as-error.patch
 Patch77: 0001-PCI-tegra-Revert-raw_violation_fixup-for-tegra124.patch
 Patch81: 0001-selinux-allow-reading-labels-before-policy-is-loaded.patch
 Patch82: 0001-Revert-dt-bindings-panel-add-binding-for-Xingbangda-.patch
