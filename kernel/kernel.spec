@@ -1432,7 +1432,7 @@ git add .
 git commit -a -m "Stable post-factum update"
 %else
 # released_kernel with possible stable updates
-%if 0%{?stable_base}
+%if !0%{?stable_base}
 # This is special because the kernel spec is hell and nothing is consistent
 xzcat %{SOURCE5000} | $patch_command
 git commit -a -m "Stable update"
