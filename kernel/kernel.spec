@@ -91,18 +91,18 @@ Summary: The Linux kernel
 %if 0%{?released_kernel}
 
 # Do we have a -stable update to apply?
-%define stable_update 0
+%define stable_update 8
 
 # Apply post-factum patches? (pf release number to enable, 0 to disable)
 # https://gitlab.com/post-factum/pf-kernel/
 # pf applies stable patches without updating stable_update number
 # stable_update above needs to match pf applied stable patches to proper rpm updates
-%global post_factum 1
+%global post_factum 4
 %global pf_url https://gitlab.com/post-factum/pf-kernel/commit
 %if 0%{?post_factum}
 %global pftag pf%{post_factum}
 # Set a git commit hash to use it instead tag, 0 to use above tag
-%global pfcommit 3b2cd3855ebd0954a85d83fd19acac40bd299fae
+%global pfcommit 1680472a0d1dc89d776a00b7952349d69b022d88
 %if "%{pfcommit}" == "0"
 %global pfrange v%{major_ver}.%{base_sublevel}-%{pftag}
 %else
@@ -131,10 +131,10 @@ Summary: The Linux kernel
 %global post_factum 0
 %endif
 
-%global opensuse_id d3bf2d63081cc9289d0d2faca50b0be94cf24da8
+%global opensuse_id f904a5feb25366b3b531d7256a524b2060e10362
 
 %if 0%{?zen}
-%global extra_patch https://github.com/zen-kernel/zen-kernel/releases/download/v%{major_ver}.%{base_sublevel}-zen%{zen}/v%{major_ver}.%{base_sublevel}-zen%{zen}.patch.xz
+%global extra_patch https://github.com/zen-kernel/zen-kernel/releases/download/v%{major_ver}.%{base_sublevel}.%{?stable_update}-zen%{zen}/v%{major_ver}.%{base_sublevel}.%{?stable_update}-zen%{zen}.patch.xz
 %endif
 
 # Set rpm version accordingly
@@ -854,31 +854,30 @@ Patch67: 0001-drm-panel-add-Xingbangda-XBD599-panel.patch
 Patch68: 0001-drm-sun4i-sun6i_mipi_dsi-fix-horizontal-timing-calcu.patch
 Patch69: 0001-arm64-allwinner-dts-a64-add-LCD-related-device-nodes.patch
 Patch70: 0001-e1000e-bump-up-timeout-to-wait-when-ME-un-configure-.patch
-#Patch72: 0001-virt-vbox-Rename-guest_caps-struct-members-to-set_gu.patch
-#Patch73: 0001-virt-vbox-Add-vbg_set_host_capabilities-helper-funct.patch
-#Patch74: 0001-virt-vbox-Add-support-for-the-new-VBG_IOCTL_ACQUIRE_.patch
-#Patch75: 0001-virt-vbox-Add-a-few-new-vmmdev-request-types-to-the-.patch
-#Patch76: 0001-virt-vbox-Log-unknown-ioctl-requests-as-error.patch
-Patch77: 0001-PCI-tegra-Revert-raw_violation_fixup-for-tegra124.patch
-Patch81: 0001-selinux-allow-reading-labels-before-policy-is-loaded.patch
-Patch82: 0001-Revert-dt-bindings-panel-add-binding-for-Xingbangda-.patch
-Patch83: 0001-Revert-drm-panel-add-Xingbangda-XBD599-panel.patch
-Patch84: 0001-Revert-drm-sun4i-sun6i_mipi_dsi-fix-horizontal-timin.patch
-Patch85: 0001-Revert-arm64-allwinner-dts-a64-add-LCD-related-devic.patch
-Patch86: 0001-dt-bindings-vendor-prefixes-Add-Xingbangda.patch
-Patch87: 0001-dt-bindings-panel-Convert-rocktech-jh057n00900-to-ya.patch
-Patch88: 0001-dt-bindings-panel-Add-compatible-for-Xingbangda-XBD5.patch
-Patch89: 0001-drm-panel-rocktech-jh057n00900-Rename-the-driver-to-.patch
-Patch90: 0001-drm-panel-st7703-Rename-functions-from-jh057n-prefix.patch
-Patch91: 0001-drm-panel-st7703-Prepare-for-supporting-multiple-pan.patch
-Patch92: 0001-drm-panel-st7703-Move-code-specific-to-jh057n-closer.patch
-Patch93: 0001-drm-panel-st7703-Move-generic-part-of-init-sequence-.patch
-Patch94: 0001-drm-panel-st7703-Add-support-for-Xingbangda-XBD599.patch
-Patch95: 0001-drm-panel-st7703-Enter-sleep-after-display-off.patch
-Patch96: 0001-drm-panel-st7703-Assert-reset-prior-to-powering-down.patch
-Patch97: 0001-arm64-dts-sun50i-a64-pinephone-Enable-LCD-support-on.patch
-Patch98: 0001-arm64-dts-sun50i-a64-pinephone-Add-touchscreen-suppo.patch
-Patch99: 0001-Work-around-for-gcc-bug-https-gcc.gnu.org-bugzilla-s.patch
+Patch80: 0001-Revert-dt-bindings-Add-doc-for-Pine64-Pinebook-Pro.patch
+Patch82: 0001-selinux-allow-reading-labels-before-policy-is-loaded.patch
+Patch83: 0001-Revert-dt-bindings-panel-add-binding-for-Xingbangda-.patch
+Patch84: 0001-Revert-drm-panel-add-Xingbangda-XBD599-panel.patch
+Patch85: 0001-Revert-drm-sun4i-sun6i_mipi_dsi-fix-horizontal-timin.patch
+Patch86: 0001-Revert-arm64-allwinner-dts-a64-add-LCD-related-devic.patch
+Patch87: 0001-dt-bindings-vendor-prefixes-Add-Xingbangda.patch
+Patch88: 0001-dt-bindings-panel-Convert-rocktech-jh057n00900-to-ya.patch
+Patch89: 0001-dt-bindings-panel-Add-compatible-for-Xingbangda-XBD5.patch
+Patch90: 0001-drm-panel-rocktech-jh057n00900-Rename-the-driver-to-.patch
+Patch91: 0001-drm-panel-st7703-Rename-functions-from-jh057n-prefix.patch
+Patch92: 0001-drm-panel-st7703-Prepare-for-supporting-multiple-pan.patch
+Patch93: 0001-drm-panel-st7703-Move-code-specific-to-jh057n-closer.patch
+Patch94: 0001-drm-panel-st7703-Move-generic-part-of-init-sequence-.patch
+Patch95: 0001-drm-panel-st7703-Add-support-for-Xingbangda-XBD599.patch
+Patch96: 0001-drm-panel-st7703-Enter-sleep-after-display-off.patch
+Patch97: 0001-drm-panel-st7703-Assert-reset-prior-to-powering-down.patch
+Patch98: 0001-arm64-dts-sun50i-a64-pinephone-Enable-LCD-support-on.patch
+Patch99: 0001-arm64-dts-sun50i-a64-pinephone-Add-touchscreen-suppo.patch
+Patch100: 0001-Work-around-for-gcc-bug-https-gcc.gnu.org-bugzilla-s.patch 
+
+Patch101: 0001-PCI-Add-MCFG-quirks-for-Tegra194-host-controllers.patch
+Patch102: 0002-arm64-tegra-Re-order-PCIe-aperture-mappings-to-suppo.patch
+Patch103: arm64-tegra-Use-valid-PWM-period-for-VDD_GPU-on-Tegra210.patch
 
 ### Extra
 
@@ -895,6 +894,7 @@ Patch1015: %{opensuse_url}/dm-mpath-leastpending-path-update#/openSUSE-dm-mpath-
 Patch1016: %{opensuse_url}/dm-table-switch-to-readonly#/openSUSE-dm-table-switch-to-readonly.patch
 Patch1017: %{opensuse_url}/dm-mpath-no-partitions-feature#/openSUSE-dm-mpath-no-partitions-feature.patch
 Patch1018: %{opensuse_url}/pstore_disable_efi_backend_by_default.patch#/openSUSE-pstore_disable_efi_backend_by_default.patch
+Patch1019: %{opensuse_url}/fs-cachefs-Drop-superfluous-readpages-aops-NULL-chec.patch#/openSUSE-fs-cachefs-Drop-superfluous-readpages-aops-NULL-chec.patch
 
 %global patchwork_url https://patchwork.kernel.org/patch
 %global patchwork_xdg_url https://patchwork.freedesktop.org/patch
@@ -1432,7 +1432,7 @@ git add .
 git commit -a -m "Stable post-factum update"
 %else
 # released_kernel with possible stable updates
-%if !0%{?stable_base}
+%if 0%{?stable_base}
 # This is special because the kernel spec is hell and nothing is consistent
 xzcat %{SOURCE5000} | $patch_command
 git commit -a -m "Stable update"
@@ -1542,7 +1542,7 @@ OPTS=""
 %if %{with_configchecks}
     OPTS="$OPTS -w -n -c"
 %endif
-# ./process_configs.sh $OPTS kernel %{rpmversion}
+#./process_configs.sh $OPTS kernel %{rpmversion}
 
 cp %{SOURCE56} .
 RPM_SOURCE_DIR=$RPM_SOURCE_DIR ./update_scripts.sh %{primary_target}
@@ -2676,6 +2676,33 @@ fi
 #
 #
 %changelog
+* Wed Sep 09 2020 Phantom X <megaphantomx at bol dot com dot br> - 5.8.8-500.chinfo
+- 5.8.8 - pf4
+
+* Sat Sep 05 2020 Phantom X <megaphantomx at bol dot com dot br> - 5.8.7-500.chinfo
+- 5.8.7 - pf4
+
+* Thu Sep 03 2020 Phantom X <megaphantomx at bol dot com dot br> - 5.8.6-500.chinfo
+- 5.8.6 - pf4
+
+* Thu Aug 27 2020 Phantom X <megaphantomx at bol dot com dot br> - 5.8.5-500.chinfo
+- 5.8.5 - pf3
+
+* Wed Aug 26 2020 Phantom X <megaphantomx at bol dot com dot br> - 5.8.4-500.chinfo
+- 5.8.4 - pf3
+
+* Sat Aug 22 2020 Phantom X <megaphantomx at bol dot com dot br> - 5.8.3-500.chinfo
+- 5.8.3 - pf2
+
+* Wed Aug 19 2020 Phantom X <megaphantomx at bol dot com dot br> - 5.8.2-500.chinfo
+- 5.8.2 - pf2
+
+* Tue Aug 11 2020 Phantom X <megaphantomx at bol dot com dot br> - 5.8.1-500.chinfo
+- 5.8.1 - pf2
+
+* Thu Aug 06 2020 Phantom X <megaphantomx at bol dot com dot br> - 5.8.0-501.chinfo
+- pf sync
+
 * Mon Aug 03 2020 Phantom X <megaphantomx at bol dot com dot br> - 5.8.0-500.chinfo
 - 5.8.0 - pf1
 - Rawhide sync
