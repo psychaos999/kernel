@@ -43,7 +43,7 @@ def load_symvers(symvers, filename):
             continue
         checksum, symbol, directory, type = in_line.split()
 
-        symvers[symbol] = in_line[0:-1]
+        symvers[symbol] = in_line[:-1]
 
 
 def load_kabi(kabi, filename):
@@ -59,7 +59,7 @@ def load_kabi(kabi, filename):
             continue
         checksum, symbol, directory, type = in_line.split()
 
-        kabi[symbol] = in_line[0:-1]
+        kabi[symbol] = in_line[:-1]
 
 
 def check_kabi(symvers, kabi):
